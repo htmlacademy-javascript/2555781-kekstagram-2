@@ -5,11 +5,13 @@
 const checkStringLength = (string, maxLength) => string.length <= maxLength;
 
 // Строка короче 20 символов
-console.log(checkStringLength('проверяемая строка', 20)); // true
+//console.log(checkStringLength('проверяемая строка', 20)); // true
+
 // Длина строки ровно 18 символов
-console.log(checkStringLength('проверяемая строка', 18)); // true
+//console.log(checkStringLength('проверяемая строка', 18)); // true
+
 // Строка длиннее 10 символов
-console.log(checkStringLength('проверяемая строка', 10)); // false
+//console.log(checkStringLength('проверяемая строка', 10)); // false
 
 // Функция для проверки, является ли строка палиндромом.
 
@@ -23,13 +25,16 @@ const checkPalindrome = (string) => {
 };
 
 // Строка является палиндромом
-console.log(checkPalindrome('топот')); // true
+//console.log(checkPalindrome('топот')); // true
+
 // Несмотря на разный регистр, тоже палиндром
-console.log(checkPalindrome('ДовОд')); // true
+//console.log(checkPalindrome('ДовОд')); // true
+
 // Это не палиндром
-console.log(checkPalindrome('Кекс')); // false
+//console.log(checkPalindrome('Кекс')); // false
+
 // Это палиндром
-console.log(checkPalindrome('Лёша на полке клопа нашёл ')); // true
+//console.log(checkPalindrome('Лёша на полке клопа нашёл ')); // true
 
 // Дополнительное задание
 // Функция принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого положительного числа.
@@ -49,10 +54,10 @@ const getNumber = (string) => {
   return +result;
 };
 
-console.log(getNumber('ECMAScript 2022')); // 2022
-console.log(getNumber('1 кефир, 0.5 батона')); // 105
-console.log(getNumber('агент 007')); // 7
-console.log(getNumber('а я томат')); // NaN
-console.log(getNumber(2023)); // 2023
-console.log(getNumber(-1)); // 1
-console.log(getNumber(1.5)); // 15
+//console.log(getNumber('ECMAScript 2022')); // 2022
+//console.log(getNumber('1 кефир, 0.5 батона')); // 105
+//console.log(getNumber('агент 007')); // 7
+//console.log(getNumber('а я томат')); // NaN
+//console.log(getNumber(2023)); // 2023
+//console.log(getNumber(-1)); // 1
+//console.log(getNumber(1.5)); // 15
