@@ -32,12 +32,12 @@ const onButtonLoader = () => {
 const fields = [fieldComments, fieldHashtag];
 
 fields.forEach((field) => {
-  field.onfocus = () => {
+  field.addEventListener('focus',() => {
     document.removeEventListener('keydown', onEscapeClose);
-  };
-  field.onblur = () => {
+  });
+  field.addEventListener('blur',() => {
     document.addEventListener('keydown', onEscapeClose);
-  };
+  });
 });
 
 
