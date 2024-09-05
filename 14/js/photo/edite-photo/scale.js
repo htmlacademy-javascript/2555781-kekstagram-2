@@ -4,29 +4,35 @@ const valueScalePhoto = scalePhoto.querySelector('.scale__control--value');
 const buttonScaleSmaller = scalePhoto.querySelector('.scale__control--smaller');
 const buttonScaleBigger = scalePhoto.querySelector('.scale__control--bigger');
 
-const scaleSettings = {
-  step: 25,
-  min: 25,
-  max: 100,
+const ScaleSettings = {
+  STEP: 25,
+  MIN: 25,
+  MAX: 100,
+  DIVIDER: 100,
 };
 
 valueScalePhoto.disabled = true;
 
-const onPhotoScaleChange = (evt) => {
-  const {step, min, max} = scaleSettings;
+let calculatedScale = ScaleSettings.MAX;
 
-  const button = evt.target;
-
-  let calculatedScale = Number(valueScalePhoto.value.slice(0, -1));
-
-  if (button === buttonScaleBigger && calculatedScale < max) {
-    calculatedScale += step;
-  } else if (button === buttonScaleSmaller && calculatedScale > min) {
-    calculatedScale -= step;
-  }
-
+const updateScalePhoto = (value) => {
+  photoScale.style.transform = `scale(${value / ScaleSettings.DIVIDER})`;
   valueScalePhoto.setAttribute('value', `${calculatedScale}%`);
-  photoScale.style.transform = `scale(${calculatedScale / 100})`;
 };
 
-export {onPhotoScaleChange};
+buttonScaleBigger.addEventListener('click', () => {
+  if (calculatedScale < ScaleSettings.MAX) {
+    calculatedScale += ScaleSettings.STEP;
+    updateScalePhoto(calculatedScale);
+  }
+});
+
+buttonScaleSmaller.addEventListener('click', () => {
+  if (calculatedScale > ScaleSettings.MIN) {
+
+    calculatedScale -= ScaleSettings.STEP;
+    updateScalePhoto(calculatedScale);
+  }
+});
+
+export {updateScalePhoto};

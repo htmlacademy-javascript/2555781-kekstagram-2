@@ -11,7 +11,6 @@ const pristine = new Pristine(formBlock, {
   errorTextClass: 'img-upload__field-wrapper--error'
 });
 
-
 const reghashtag = /^#[a-zа-яё0-9]{1,19}$|^$/i;
 
 const validateHashtagCorrect = (values) => {
@@ -20,20 +19,12 @@ const validateHashtagCorrect = (values) => {
     flag = reghashtag.test(value);
   }
   return flag;
-} ;
-
-const validateHashtagCount = (values) => {
-  const hashtags = values.split(/\s+/).filter((tag) => tag.trim().length > 0);
-  return hashtags.length <= maxHashtag;
 };
 
-const isAllSpaces = (values) => {
-  const validPattern = /^(?![\s]*$).*|^$/;
-  return validPattern.test(values);
-};
+const validateHashtagCount = (values) => values.split(' ').length <= maxHashtag;
 
 const validateHashtagRepeat = (values) => {
-  const arrayHashtags = values.toUpperCase().split(/\s+/).filter((tag) => tag.trim().length > 0);
+  const arrayHashtags = values.toUpperCase().split(' ');
   const duplicates = arrayHashtags.filter((elem, index, array) => array.indexOf(elem) !== index);
   return duplicates.length === 0;
 };
@@ -49,7 +40,6 @@ pristine.addValidator(hashtag, validateHashtagRepeat, 'Хештеги не до�
 
 pristine.addValidator(comment, validateCommentLenght, 'Максимальное количество символов в комментарии: 140');
 
-pristine.addValidator(hashtag, isAllSpaces, 'Строка не может быть только из пробелов');
 
 formBlock.addEventListener('submit', (evt) => {
   evt.preventDefault();
@@ -62,5 +52,3 @@ formBlock.addEventListener('submit', (evt) => {
   // eslint-disable-next-line no-console
   console.log('Можно отправлять');
 });
-
-

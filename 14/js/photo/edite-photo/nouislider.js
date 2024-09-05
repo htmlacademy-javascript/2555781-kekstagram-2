@@ -18,13 +18,13 @@ const onPhotoSliderChange = (evt) => {
   const idEffect = evt.target.id;
   const effect = sliderSetting[idEffect];
 
-  sliderConteiner.classList.remove('hidden');
-
   if (idEffect === 'effect-none') {
     sliderConteiner.classList.add('hidden');
     targetPhoto.style.filter = 'none';
     return;
   }
+
+  sliderConteiner.classList.remove('hidden');
 
   sliderElement.noUiSlider.updateOptions({
     range: {
