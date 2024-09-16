@@ -1,11 +1,12 @@
 const socialCommentsElement = document.querySelector('.social__comments');
+const sizePhoto = 35;
 
 socialCommentsElement.innerHTML = '';
 
 const renderComment = ({avatar, name, message}) => {
   const commentElement = document.createElement('li');
   const textElement = document.createElement('p');
-  const imageElement = new Image(35, 35);
+  const imageElement = new Image(sizePhoto, sizePhoto);
 
   commentElement.classList.add('social__comment');
   textElement.classList.add('social__text');

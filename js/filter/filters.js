@@ -5,6 +5,8 @@ const filtersElement = document.querySelector('.img-filters');
 const filterDefaultElement = document.querySelector('#filter-default');
 const filterRandomElement = document.querySelector('#filter-random');
 const filterDiscussedElement = document.querySelector('#filter-discussed');
+const timeoutDelay = 500;
+const countRandomPhoto = 10;
 
 const removeActiveClassFromButtons = () => {
   const filterButtons = document.querySelectorAll('.img-filters__button');
@@ -25,7 +27,7 @@ const clearAddedPhotos = () => {
 const debouncedCreatePhoto = debounce((data) => {
   clearAddedPhotos();
   renderPhotoDescriptions(data);
-}, 500);
+}, timeoutDelay);
 
 const updatePhotoDisplay = (photosArray, buttonElement) => {
   removeActiveClassFromButtons();
@@ -36,7 +38,7 @@ const updatePhotoDisplay = (photosArray, buttonElement) => {
 const showfilterRandom = (photosArray, buttonElement) => {
   const shuffledArray = photosArray.slice();
   shuffle(shuffledArray);
-  const randomPhotos = shuffledArray.slice(0, 10);
+  const randomPhotos = shuffledArray.slice(0, countRandomPhoto);
   updatePhotoDisplay(randomPhotos, buttonElement);
 
 };

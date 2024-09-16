@@ -1,6 +1,7 @@
 import { isEscapeKey } from '../util.js';
 import { resetSliderToDefault } from '../photo/edite-photo/nouislider.js';
 import { pristine } from './form-validation.js';
+import { updateCurrentScale } from '../photo/edite-photo/scale.js';
 
 const formElement = document.querySelector('.img-upload__form');
 const uploadPhotoInputElement = formElement.querySelector('.img-upload__input');
@@ -13,6 +14,7 @@ const focusFieldElements = [commentsFieldElement, hashtagsFieldElement];
 const closeEditPhotoOverlay = () => {
   editPhotoOverlayElement.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  updateCurrentScale();
   formElement.reset();
   resetSliderToDefault();
   pristine.reset();
