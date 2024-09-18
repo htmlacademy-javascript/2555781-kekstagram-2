@@ -1,6 +1,8 @@
 import { renderComment } from '../comments/comments.js';
 import { isEscapeKey } from '../util.js';
 
+const STEP_LOADING_COMMENTS = 5;
+
 const bodyElement = document.querySelector('body');
 const bigPhotoBlockElement = document.querySelector('.big-picture');
 const bigPhotoImageElement = bigPhotoBlockElement.querySelector('img');
@@ -11,7 +13,6 @@ const commentsShowCountElement = bigPhotoBlockElement.querySelector('.social__co
 const socialCaptionElement = bigPhotoBlockElement.querySelector('.social__caption');
 const buttonCommentsLoaderElement = bigPhotoBlockElement.querySelector('.comments-loader');
 
-const STEP_LOADING_COMMENTS = 5;
 let indexLoadingComments = 0;
 
 let allComments = [];

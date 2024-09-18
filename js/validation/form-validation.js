@@ -2,12 +2,13 @@ import './photo-edit-overlay.js';
 import { blockSubmitButton, unblockSubmitButton } from '../photo/edite-photo/submit-button.js';
 import { sendData } from '../api.js';
 
+const MAX_HASHTAGS = 5;
+const MAX_COMMENT_LENGTH = 140;
+const REGHASHTAG = /^#[a-zа-яё0-9]{1,19}$|^$/i;
+
 const formElement = document.querySelector('.img-upload__form');
 const hashtagFieldElement = formElement.querySelector('.text__hashtags');
 const commentFieldElement = formElement.querySelector('.text__description');
-
-const MAX_HASHTAGS = 5;
-const MAX_COMMENT_LENGTH = 140;
 
 const pristine = new Pristine(formElement, {
   classTo: 'img-upload__field-wrapper',
@@ -15,12 +16,10 @@ const pristine = new Pristine(formElement, {
   errorTextClass: 'img-upload__field-wrapper--error'
 });
 
-const reghashtag = /^#[a-zа-яё0-9]{1,19}$|^$/i;
-
 const validateHashtags = (values) => {
   let flag = true;
   for (const value of values.trim().split(' ')) {
-    flag = reghashtag.test(value);
+    flag = REGHASHTAG.test(value);
   }
   return flag;
 };

@@ -1,15 +1,15 @@
-const scaleContainerElement = document.querySelector('.img-upload__overlay');
-const photoElement = document.querySelector('.img-upload__preview img');
-const scaleValueElement = scaleContainerElement.querySelector('.scale__control--value');
-const scaleSmallerButtonElement = scaleContainerElement.querySelector('.scale__control--smaller');
-const scaleBiggerButtonElement = scaleContainerElement.querySelector('.scale__control--bigger');
-
 const SCALE_SETTINGS = {
   STEP: 25,
   MIN: 25,
   MAX: 100,
   DIVIDER: 100,
 };
+
+const scaleContainerElement = document.querySelector('.img-upload__overlay');
+const photoElement = document.querySelector('.img-upload__preview img');
+const scaleValueElement = scaleContainerElement.querySelector('.scale__control--value');
+const scaleSmallerButtonElement = scaleContainerElement.querySelector('.scale__control--smaller');
+const scaleBiggerButtonElement = scaleContainerElement.querySelector('.scale__control--bigger');
 
 let currentScale = SCALE_SETTINGS.MAX;
 
